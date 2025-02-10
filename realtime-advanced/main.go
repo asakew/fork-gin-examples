@@ -38,5 +38,8 @@ func StartGin() {
 	router.POST("/room-post/:roomid", roomPOST)
 	router.GET("/stream/:roomid", streamRoom)
 
-	router.Run(":80")
+	err := router.Run(":80")
+	if err != nil {
+		return
+	}
 }
