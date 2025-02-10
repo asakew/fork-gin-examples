@@ -4,6 +4,7 @@
 package main
 
 import (
+	"errors"
 	"log"
 	"net/http"
 	"os"
@@ -37,7 +38,7 @@ func main() {
 	}()
 
 	if err := server.ListenAndServe(); err != nil {
-		if err == http.ErrServerClosed {
+		if errors.Is(err, http.ErrServerClosed) {
 			log.Println("Server closed under request")
 		} else {
 			log.Fatal("Server closed unexpect")
