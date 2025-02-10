@@ -1,4 +1,4 @@
-module example
+module websocket
 
 go 1.19
 
